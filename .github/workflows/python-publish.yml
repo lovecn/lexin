@@ -10,7 +10,7 @@ on:
     branches: main
   workflow_dispatch:
   schedule:
-    - cron: '30 14 * * *'
+    - cron: '0 7 * * *'
     # cron表达式，Actions时区是UTC时间，所以下午18点要往前推8个小时
 
 jobs:
@@ -30,7 +30,6 @@ jobs:
         pip install setuptools wheel twine
     - name: Build and publish
       env:
-        TZ: Asia/Shanghai
         TWINE_USERNAME: ${{ secrets.USERNAME }}
         TWINE_PASSWORD: ${{ secrets.PASSWORD }}
         TWINE_STEP: ${{ secrets.STEP }}
